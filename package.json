@@ -12,15 +12,13 @@
     "url": "git+https://github.com/shopglobal/FriendFinder.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/shopglobal/FriendFinder/issues"
   },
   "homepage": "https://github.com/shopglobal/FriendFinder#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
-    "chosen-jquery-browserify": "^1.0.0",
-<<<<<<< HEAD
     "express": "^4.15.2",
     "chai": "~1.5.0",
     "coffee-script": "~1.6.2",
@@ -29,9 +27,6 @@
     "grunt-coffeelint": "0.0.6",
     "grunt-contrib": "~0.5.0",
     "grunt-mocha": "~0.3.0",
-    "jquery-browserify": "~1.8.1"
-=======
-    "express": "^4.15.2"
->>>>>>> e100d56eb5ae0bb35afa6d396763193473fc35f4
+    "jquery-browserify": "~1.8.1",
   }
 }
