@@ -2,7 +2,7 @@
 // Routed the Themes API to localhost, may need to update, may work in production or may not in certain cases
 // Mapped data to data[0].elementOrVariable this seems to be the case with other Express sites we work with, not always but a good start is data[0].elementWeNeed
 // The JSON is a loop of themes, it presente the user a dropdown to select themes from the front-end. Locally stored the JSON object, using jQuery we load a new style.css over the last, and thus replace the style on the page in real-time!
-$.getJSON("http://localhost:8080/api/themes", function (data) {
+$.getJSON("/api/themes", function (data) {
   var themes = data[0].themes;
   var select = $("#themes");
   select.show();
