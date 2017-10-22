@@ -17,6 +17,10 @@ function htmlRoutes(app) {
         res.sendFile(path.join(__dirname, "../public/home.html"));
     });
 
+    // app.get("/themes", function (req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/assets/bootswatch.json"));
+    // });
+
     app.get("/survey", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
     });

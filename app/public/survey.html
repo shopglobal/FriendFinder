@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Friend Finder - Survey</title>
+    <title>Friends Finders - Survey</title>
     <!-- jQuery 3.2.1 -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-
     <!-- Compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Friend Match Selector Logic & Styles-->
+    <link rel="stylesheet" href="/friend_finder.css">
+    <script src="/friend_finder.jquery.min.js"></script>
+    <!-- Local Styles API -->
+    <script src="/styles.js"></script>
     <!-- Main Styles -->
     <link rel="stylesheet" href="/bootswatch.css">
-    <link rel="stylesheet" href="/style.css">
-
-    <!-- <link rel="stylesheet" href="/friend_finder.css"> -->
-    <script src="/friend_finder.jquery.min.js"></script>
+    <link rel="stylesheet" href="/style.min.css">
+<style>.jumbotron{width:70%;margin:auto;padding:25px 25px 25px 25px}#friendImg{max-height:60%;max-width:60%;margin:auto}img.responsive{width:100%;height:auto}body{padding:2em;text-align:center}h1{margin-bottom:1em}footer{position:relative;text-align:center}
+</style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -29,9 +31,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-                <a class="navbar-brand" href="/">Friend Finder</a>
+                <a class="navbar-brand" href="/">Friends Finders</a>
             </div>
-
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home </a></li>
@@ -40,16 +41,13 @@
             </div>
         </div>
     </nav>
-
-
     <div id="modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Your Friend Match</h4>
+                    <h4 class="modal-title">Your Friends Match</h4>
                 </div>
                 <div class="modal-body">
                     <div class="text-center">
@@ -61,29 +59,22 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
-
-
     <div class="container">
-
         <h2>Survey Questions</h2>
         <hr>
-
         <h3><strong>About You</strong></h3>
         <h4>Name (Required)</h4>
         <input type="text" name="" id="name" class="form-control" required="" tabindex="1">
 
         <h4>Link to Photo Image (Required)</h4>
         <input type="text" name="" id="photo" class="form-control" required="" tabindex="2">
-
         <hr>
-
         <h3><strong>Question 1</strong></h3>
         <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q1" tabindex="3">
+            <select data-placeholder="" class="chosen-select-no-single" id="q1" tabindex="3">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -92,11 +83,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
         <h3><strong>Question 2</strong></h3>
         <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q2" tabindex="4">
+            <select data-placeholder="" class="chosen-select-no-single" id="q2" tabindex="4">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -105,11 +95,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
         <h3><strong>Question 3</strong></h3>
         <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q3" tabindex="5">
+            <select data-placeholder="" class="chosen-select-no-single" id="q3" tabindex="5">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -118,11 +107,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
         <h3><strong>Question 4</strong></h3>
         <h4>You rarely do something just out of sheer curiosity.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q4" tabindex="6">
+            <select data-placeholder="" class="chosen-select-no-single" id="q4" tabindex="6">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -131,11 +119,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
         <h3><strong>Question 5</strong></h3>
         <h4>People can rarely upset you.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q5" tabindex="7">
+            <select data-placeholder="" class="chosen-select-no-single" id="q5" tabindex="7">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -144,12 +131,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
-
         <h3><strong>Question 6</strong></h3>
         <h4>It is often difficult for you to relate to other people’s feelings.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q6" tabindex="8" <option value=""></option>
+            <select data-placeholder="" class="chosen-select-no-single" id="q6" tabindex="8" <option value=""></option>
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -158,13 +143,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
-
-
         <h3><strong>Question 7</strong></h3>
         <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q7" tabindex="9">
+            <select data-placeholder="" class="chosen-select-no-single" id="q7" tabindex="9">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -173,12 +155,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
-
         <h3><strong>Question 8</strong></h3>
         <h4>You rarely get carried away by fantasies and ideas.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q8" tabindex="10">
+            <select data-placeholder="" class="chosen-select-no-single" id="q8" tabindex="10">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -187,12 +167,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
-
         <h3><strong>Question 9</strong></h3>
         <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q9" tabindex="11">
+            <select data-placeholder="" class="chosen-select-no-single" id="q9" tabindex="11">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -201,12 +179,10 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         </div>
-
-
         <h3><strong>Question 10</strong></h3>
         <h4>You feel more energetic after spending time with a group of people.</h4>
         <div>
-            <select data-placeholder="" class="friend_finder-select-no-single" id="q10" tabindex="12">
+            <select data-placeholder="" class="chosen-select-no-single" id="q10" tabindex="12">
 	 		<option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -217,104 +193,15 @@
         </div>
         <br>
         <br>
-
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" tabindex="13"><i class="fa fa-check-circle" aria-hidden="true"></i>
  Submit</button>
     </div>
     <hr>
 <br><br>
-    <footer><br>Mark Allen Evans <br>
+    <footer><br> Mark Allen Evans <br>
       <a href="https://friends-finders.herokuapp.com">Live Demo</a>    |    <a href="https://github.com/shopglobal/friendfinder">Github Repo</a>    |    <a href="/api/friends">API Endpoint</a><br>Select Theme <select id="themes"></select></footer>
-      </body>
-       <script type="text/javascript">
-        var config = {
-            '.friend_finder-select': {},
-            '.friend_finder-select-deselect': { allow_single_deselect: true },
-            '.friend_finder-select-no-single': { disable_search_threshold: 10 },
-            '.friend_finder-select-no-results': { no_results_text: 'Oops, nothing found!' },
-            '.friend_finder-select-width': { width: "95%" }
-        }
-        for (var selector in config) {
-            $(selector).friend_finder(config[selector]);
-        }
-
-        var newFriend = {
-
-        }
-
-        $("#submit").on("click", function () {
-
-            function validateForm() {
-                var isValid = true;
-                $('.form-control').each(function () {
-                    if ($(this).val() === '')
-                        isValid = false;
-                });
-
-                $('.friend_finder-select-no-single').each(function () {
-
-                    if ($(this).val() === "")
-                        isValid = false
-                })
-                return isValid;
-            }
-            if (validateForm() == true) {
-                var surveyResults = [];
-
-                for (var i = 1; i < 11; i++) {
-                    surveyResults.push($("#q" + i).val());
-                }
-
-                var newFriend = {
-                    "name": $("#name").val().trim(),
-                    "picture": $("#photo").val().trim(),
-                    "survey": surveyResults
-                }
-                console.log(newFriend);
-
-                $.post("/api/friends", newFriend, function (data) {
-                    if (data) {
-                        console.log("matched with:", data);
-                        $("#friendName").text(data.name);
-                        $('#friendImg').attr("src", data.photo);
-                        $("#modal").modal('toggle');
-                    }
-
-                    else {
-                        //error out
-                    }
-
-                });
-            }
-            else {
-                alert("Please fill out all fields before checking your results!");
-            }
-        });
-// bringing in some color, will custom tailor the details later if need be
-// the JSON is a loop of themes, it presente the user a dropdown to select themes from the front-end. Locally stored the JSON object, using jQuery we load a new style.css over the last, and thus replace the style on the page in real-time!
- $.getJSON("/bootswatch.json", function (data) {
-  var themes = data.themes;
-  var select = $("#themes");
-  select.show();
-  $(".alert").toggleClass("alert-info alert-success");
-  $(".alert h4").text("Success!");
-  
-  themes.forEach(function(value, index){
-    select.append($("<option />")
-          .val(index)
-          .text(value.name));
-  });
-  
-  select.change(function(){
-    var theme = themes[$(this).val()];
-    $("link").attr("href", theme.css);
-    $("h5").text(theme.name);
-  }).change();
-
-}, "json").fail(function(){
-    $(".alert").toggleClass("alert-info alert-danger");
-    $(".alert h4").text("Failure!");
-});
-    </script>
+    <!-- Friend Match Selector Logic-->
+    <script type="text/javascript" src="/selector.js"></script>
+</body>
 </html>

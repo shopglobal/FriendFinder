@@ -1,8 +1,12 @@
 // ---------------------------------------
-// Friends is sitting outside to prevent user manipulation 
+// Friends is outside main-dir for an added layer of security 
 // ---------------------------------------
 
 var friends = [{
+    "name": "High Average Always 5",
+    "photo": "https://drive.google.com/open?id=14BTtkQIvHO1jcOr7ELPAWcZpfkWaeTEEDg",
+    "scores": [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+},{
     "name": "Mark",
     "photo": "https://image.ibb.co/epUwMR/35c9aa9.jpg",
     "scores": [5, 4, 2, 2, 4, 3, 4, 4, 5, 5]
@@ -26,6 +30,10 @@ var friends = [{
     "name": "Kendra Krzywicki",
     "photo": "https://image.ibb.co/d1y2BR/kendra_friendfinder.png",
     "scores": [2, 2, 3, 4, 1, 4, 3, 5, 4, 2]
+},{
+    "name": "Low Low Always 1",
+    "photo": "https://drive.google.com/open?id=14BTtkQIvHO1jcOr7ELPAWcZpfkWaeTEEDg",
+    "scores": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 }];
 
 // ---------------------------------------

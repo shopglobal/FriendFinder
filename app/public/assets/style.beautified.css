@@ -9,23 +9,28 @@
     max-width: 60%;
     margin: auto;
 }
+
 img.responsive {
-    width : 100%; /* or max-width : 100% */
-    height: auto; 
+    width: 100%;
+    /* or max-width : 100% */
+    height: auto;
 }
+
 body {
- 	  padding: 2em;
-  	text-align: center;
+    padding: 2em;
+    text-align: center;
 }
 
 h1 {
-  	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
+
 /*select {
   	display: none;
   	position: relative;
   	text-align: center;
 }*/
+
 footer {
     position: relative;
     text-align: center;
