@@ -6,25 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder</title>
-
+    <!-- jQuery 3.2.1 -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-    <!-- Latest compiled and minified CSS & JS -->
+    <!-- Compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-
+    <!-- Home Styles -->
     <link rel="stylesheet" href="/style.css">
+    <script src="/styles.js"></script>
 
 </head>
- <script>
+<!--  <script>
+  // bringing in some color, will custom tailor the details later if need be
+  // the JSON is a loop of themes, it presente the user a dropdown to select themes from the front-end. Locally stored the JSON object, using jQuery we load a new style.css over the last, and thus replace the style on the page in real-time!
  $.getJSON("/bootswatch.json", function (data) {
   var themes = data.themes;
   var select = $("select");
@@ -48,7 +45,7 @@
     $(".alert").toggleClass("alert-info alert-danger");
     $(".alert h4").text("Failure!");
 });
-  </script>
+  </script> -->
 <style>
 img.responsive {
         width : 100%; /* or max-width : 100% */
@@ -62,12 +59,12 @@ body {
 h1 {
   margin-bottom: 1em;
 }
-
+/*
 select {
   display: none;
   position: relative;
   text-align: center;
-}
+}*/
 </style>    
 <body>
     <nav class="navbar navbar-inverse">
@@ -106,7 +103,8 @@ select {
             </a>
         </div>
     </div><br><br>
-    <footer><select></select><br><a href="toDO">Live Demo</a>    |    <a href="https://github.com/shopglobal/friendfinder">Github Repo</a>    |    <a href="/api/friends">API Endpoint</a></footer>
+    <footer><br>Mark Allen Evans <br>
+      <a href="https://friends-finders.herokuapp.com">Live Demo</a>    |    <a href="https://github.com/shopglobal/friendfinder">Github Repo</a>    |    <a href="/api/friends">API Endpoint</a><br>Select Theme <select></select></footer>
 
 </body>
 

@@ -6,32 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder - Survey</title>
-
+    <!-- jQuery 3.2.1 -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-
+    <!-- Compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Main Styles -->
     <link rel="stylesheet" href="/bootswatch.css">
     <link rel="stylesheet" href="/style.css">
 
-    <link rel="stylesheet" href="/friend_finder.css">
-    <script src="/friend_finder.jquery.min.js">
-
-    </script>
+    <!-- <link rel="stylesheet" href="/friend_finder.css"> -->
+    <script src="/friend_finder.jquery.min.js"></script>
 </head>
-
 <body>
-
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -235,8 +223,11 @@
  Submit</button>
     </div>
     <hr>
-
-    <script type="text/javascript">
+<br><br>
+    <footer><br>Mark Allen Evans <br>
+      <a href="https://friends-finders.herokuapp.com">Live Demo</a>    |    <a href="https://github.com/shopglobal/friendfinder">Github Repo</a>    |    <a href="/api/friends">API Endpoint</a><br>Select Theme <select id="themes"></select></footer>
+      </body>
+       <script type="text/javascript">
         var config = {
             '.friend_finder-select': {},
             '.friend_finder-select-deselect': { allow_single_deselect: true },
@@ -300,7 +291,30 @@
                 alert("Please fill out all fields before checking your results!");
             }
         });
-    </script>
-</body>
+// bringing in some color, will custom tailor the details later if need be
+// the JSON is a loop of themes, it presente the user a dropdown to select themes from the front-end. Locally stored the JSON object, using jQuery we load a new style.css over the last, and thus replace the style on the page in real-time!
+ $.getJSON("/bootswatch.json", function (data) {
+  var themes = data.themes;
+  var select = $("#themes");
+  select.show();
+  $(".alert").toggleClass("alert-info alert-success");
+  $(".alert h4").text("Success!");
+  
+  themes.forEach(function(value, index){
+    select.append($("<option />")
+          .val(index)
+          .text(value.name));
+  });
+  
+  select.change(function(){
+    var theme = themes[$(this).val()];
+    $("link").attr("href", theme.css);
+    $("h5").text(theme.name);
+  }).change();
 
+}, "json").fail(function(){
+    $(".alert").toggleClass("alert-info alert-danger");
+    $(".alert h4").text("Failure!");
+});
+    </script>
 </html>

@@ -1,6 +1,18 @@
 {
 "version": "3.3.6",
 "themes": [{
+"name": "Flatly",
+"description": "Flat and modern",
+"thumbnail": "https://bootswatch.com/flatly/thumbnail.png",
+"preview": "https://bootswatch.com/flatly/",
+"css": "https://bootswatch.com/flatly/bootstrap.css",
+"cssMin": "https://bootswatch.com/flatly/bootstrap.min.css",
+"cssCdn": "https://maxcdn.bootstrapcdn.com/bootswatch/latest/flatly/bootstrap.min.css",
+"less": "https://bootswatch.com/flatly/bootswatch.less",
+"lessVariables": "https://bootswatch.com/flatly/variables.less",
+"scss": "https://bootswatch.com/flatly/_bootswatch.scss",
+"scssVariables": "https://bootswatch.com/flatly/_variables.scss"
+},{
 "name": "United",
 "description": "Ubuntu orange and unique font",
 "thumbnail": "https://bootswatch.com/united/thumbnail.png",
@@ -64,19 +76,6 @@
 "lessVariables": "https://bootswatch.com/darkly/variables.less",
 "scss": "https://bootswatch.com/darkly/_bootswatch.scss",
 "scssVariables": "https://bootswatch.com/darkly/_variables.scss"
-},
-{
-"name": "Flatly",
-"description": "Flat and modern",
-"thumbnail": "https://bootswatch.com/flatly/thumbnail.png",
-"preview": "https://bootswatch.com/flatly/",
-"css": "https://bootswatch.com/flatly/bootstrap.css",
-"cssMin": "https://bootswatch.com/flatly/bootstrap.min.css",
-"cssCdn": "https://maxcdn.bootstrapcdn.com/bootswatch/latest/flatly/bootstrap.min.css",
-"less": "https://bootswatch.com/flatly/bootswatch.less",
-"lessVariables": "https://bootswatch.com/flatly/variables.less",
-"scss": "https://bootswatch.com/flatly/_bootswatch.scss",
-"scssVariables": "https://bootswatch.com/flatly/_variables.scss"
 },
 {
 "name": "Journal",
