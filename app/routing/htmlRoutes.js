@@ -25,6 +25,10 @@ function htmlRoutes(app) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
     });
 
+    app.get("/styles", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/assets/styles.js"));
+    });
+
     app.use(express.static(path.join(__dirname, '../public/assets/')));
 
 }

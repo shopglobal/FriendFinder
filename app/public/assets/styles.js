@@ -19,11 +19,13 @@ $.getJSON("/api/themes", function (data) {
   });
   }
   setTimeout(selectAppend, 900);
-  selectAppend();
+  
   select.change(function(){
+    selectAppend();
     var theme = themes[$(this).val()];
     $("link").attr("href", theme.css);
-    $("h5").text(theme.name);
+    $("#themeName").text(theme.name);
+    $("#themeUrl").text(theme.css);
   }).change();
 
 }, "json").fail(function(){
