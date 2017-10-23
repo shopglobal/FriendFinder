@@ -62,3 +62,7 @@
                 alert("Please fill out all fields before submitting!");
             }
         });
+$('#modal').on('hidden.bs.modal', function() {
+    window.alert('When you click OK, the page will reload!'); // alert then process next step --> can remove the alert in production and the page will simply reload on modal exit
+    location.reload(); // reload the client
+});
